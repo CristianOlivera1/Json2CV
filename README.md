@@ -70,6 +70,7 @@ cd Login-Register-with-Autentication
 2. **Instala dependencias**
 ```bash
 composer install
+npm install
 ```
 
 3. **Configura variables de entorno**
@@ -104,9 +105,13 @@ CREATE DATABASE codeoner;
 -- Importar schema desde database/schema.sql
 ```
 
-6. **Configura tu servidor web**
-- Apunta el DocumentRoot a la carpeta `public/`
-- Habilita mod_rewrite (Apache) o configuración equivalente
+6. **Ejecución del Proyecto**
+```bash
+# Inicia el servidor de desarrollo en el puerto 3000
+php -S localhost:3000 -t public public/router.php
+# Compila y vigila cambios en CSS para generar el archivo final 'style.css'
+npx tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css/style.css --watch
+```
 
 ## ⚙️ Configuración OAuth
 

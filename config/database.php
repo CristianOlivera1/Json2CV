@@ -1,25 +1,37 @@
 <?php
 
-class Database {
+class Database
+{
     private $host;
     private $username;
     private $password;
     private $database;
     private $connection;
 
-    public function __construct() {
-        $this->host = $_ENV['DB_HOST'] ?? 'localhost';
-        $this->username = $_ENV['DB_USERNAME'] ?? 'root';
-        $this->password = $_ENV['DB_PASSWORD'] ?? '';
-        $this->database = $_ENV['DB_NAME'] ?? 'codeoner';
+    public function __construct()
+    {
+        $isLocal = ($_SERVER['REMOTE_ADDR'] === '127.0.0.1' || $_SERVER['SERVER_NAME'] === 'localhost');
+
+        if ($isLocal) {
+            $this->host = '127.0.0.1';
+            $this->username = 'root';
+            $this->password = '';
+            $this->database = 'codeoner';
+        } else {
+            $this->host = $_ENV['DB_HOST'];
+            $this->username = $_ENV['DB_USERNAME'];
+            $this->password = $_ENV['DB_PASSWORD'];
+            $this->database = $_ENV['DB_NAME'];
+        }
     }
 
-    public function connect() {
+    public function connect()
+    {
         try {
             $this->connection = new mysqli(
-                $this->host, 
-                $this->username, 
-                $this->password, 
+                $this->host,
+                $this->username,
+                $this->password,
                 $this->database
             );
 
@@ -35,14 +47,16 @@ class Database {
         }
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         if (!$this->connection) {
             return $this->connect();
         }
         return $this->connection;
     }
 
-    public function close() {
+    public function close()
+    {
         if ($this->connection) {
             $this->connection->close();
         }

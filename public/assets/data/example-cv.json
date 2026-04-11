@@ -6,7 +6,7 @@
     "email": "oliverachavezcristian@gmail.com",
     "phone": "+51 954 306 632",
     "url": "https://github.com/CristianOlivera1",
-    "summary": "Mi responsabilidad es algo que me caracteriza. Estoy constantemente en busca de oportunidades para nunca dejar de aprender y así perfeccionar mis habilidades. Desarrollador de aplicaciones web con conocimientos en tecnologías como Angular, React, Spring Boot, bases de datos y demás.",
+    "summary": "Mi responsabilidad es algo que me caracteriza, estoy constantemente en busca de oportunidades y así perfeccionar mis habilidades. Desarrollador con conocimientos en tecnologías como Angular, NextJS, Spring Boot, bases de datos y demás.",
     "location": {
       "city": "Abancay",
       "region": "Apurímac"
@@ -28,6 +28,28 @@
   ],
   "projects": [
     {
+      "name": "openvid - Crea demos en el navegador (Ganador Hackathon 2026 de midudev)",
+      "role": "Desarrollador FullStack & Arquitecto de Sistemas",
+      "type": "Proyecto Personal",
+      "startDate": "2026-02",
+      "endDate": "Actualidad",
+      "description": "Plataforma de creación de demos de video directamente en el navegador, ganadora del Hackathon 2026 de midudev.",
+      "highlights": [
+        "Procesamiento Edge & WebAssembly: Implementé FFmpeg.wasm para desplazar el renderizado de video 4K del servidor al cliente, optimizando costos de infraestructura y garantizando privacidad de datos.",
+        "Gestión de Datos y Almacenamiento: Diseñé una arquitectura híbrida que combina PostgreSQL (Supabase) para persistencia de usuarios y IndexedDB para archivos binarios pesados en local, reduciendo la latencia de red.",
+        "Experiencia de Usuario: Integré Canvas API, Radix UI y Framer Motion para una interfaz fluida y altamente interactiva."
+      ],
+      "technologies": [
+        "Next.js",
+        "FFmpeg.wasm",
+        "Supabase",
+        "PostgreSQL",
+        "Canvas API",
+        "Radix UI",
+        "Framer Motion"
+      ]
+    },
+    {
       "name": "Chat AI - Plataforma de generación de Imágenes y Videos",
       "role": "Desarrollador FullStack",
       "type": "Proyecto Personal",
@@ -48,30 +70,6 @@
         "Freepik API",
         "PostgreSQL",
         "AI Elements"
-      ]
-    },
-    {
-      "name": "Apu Nina - Sistema de Gestión de Incendios Forestales",
-      "role": "Desarrollador FullStack",
-      "type": "Proyecto Académico",
-      "startDate": "2025-05",
-      "endDate": "2025-08",
-      "description": "Sistema web completo para la gestión y monitoreo de incendios forestales",
-      "highlights": [
-        "Desarrollé un sistema web completo para la gestión y monitoreo de incendios forestales.",
-        "Implementé autenticación con Google OAuth y sistema de roles para diferentes tipos de usuarios.",
-        "Integré funcionalidades de localización GPS en tiempo real y sistema de notificaciones push.",
-        "Optimicé la exportación de datos en múltiples formatos (JSON, CSV, Excel)."
-      ],
-      "technologies": [
-        "Angular",
-        "Spring Boot",
-        "MySQL",
-        "Supabase",
-        "Tailwind CSS",
-        "Google Cloud",
-        "LeafletJS",
-        "UIAvatars API"
       ]
     },
     {

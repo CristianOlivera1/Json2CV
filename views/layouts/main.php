@@ -45,7 +45,7 @@
 
     <?php include __DIR__ . '/../partials/header.php'; ?>
 
-    <main id="app-content" class="flex-grow container mx-auto p-3">
+    <main id="app-content" class="flex-grow container mx-auto">
         <?php echo $content; ?>
     </main>
 

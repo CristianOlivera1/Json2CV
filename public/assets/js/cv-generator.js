@@ -10,6 +10,7 @@ class CVGenerator {
         this.lastSavedData = null;
         this.hasUnsavedChanges = false;
         this.isSaving = false;
+        this.rawEditorContent = ''; // Contenido sin syntax highlighting para contar líneas
 
         this.initializeElements();
         this.checkAuthentication().then(() => {
@@ -90,7 +91,12 @@ class CVGenerator {
         }
 
         if (this.jsonEditor) {
-            this.jsonEditor.addEventListener('input', () => this.handleJSONChange());
+            this.jsonEditor.addEventListener('input', () => {
+                // Actualizar rawEditorContent cuando el usuario edita
+                this.rawEditorContent = this.getPlainTextFromEditor();
+                this.handleJSONChange();
+                this.updateLineNumbers();
+            });
             this.jsonEditor.addEventListener('paste', (e) => this.handlePaste(e));
         }
 
@@ -147,8 +153,12 @@ class CVGenerator {
         if (!this.jsonEditor) return;
 
         const toonContent = this.generateTOON(this.currentCVData || {});
+        this.rawEditorContent = toonContent; // Guardar contenido sin procesar
 
         this.jsonEditor.innerHTML = `<pre style="color: #94a3b8; font-family: monospace; font-size: 0.875rem; line-height: 1.5;">${toonContent}</pre>`;
+        
+        // Actualizar contador de líneas
+        this.updateLineNumbers();
     }
 
     generateTOON(cvData) {
@@ -575,7 +585,9 @@ ${skills.map((skillGroup, index) => `  category_${index + 1} {
         if (isTOONMode) {
             this.showTOONEditor();
         } else {
-            const formattedJSON = this.syntaxHighlight(JSON.stringify(jsonData, null, 2));
+            const jsonText = JSON.stringify(jsonData, null, 2);
+            this.rawEditorContent = jsonText; // Guardar contenido sin procesar
+            const formattedJSON = this.syntaxHighlight(jsonText);
             this.jsonEditor.innerHTML = formattedJSON;
             this.updateLineNumbers();
         }
@@ -608,8 +620,10 @@ ${skills.map((skillGroup, index) => `  category_${index + 1} {
     }
 
     updateLineNumbers() {
-        const lines = this.getPlainTextFromEditor().split('\n');
-        const lineNumberContainer = document.querySelector('.w-12.flex-shrink-0');
+        // Usar el contenido sin procesar para contar líneas exactamente
+        const content = this.rawEditorContent || this.getPlainTextFromEditor();
+        const lines = content.split('\n');
+        const lineNumberContainer = document.querySelector('.w-8.md\\:w-12');
 
         if (lineNumberContainer) {
             let lineNumberHTML = '';
@@ -1095,8 +1109,19 @@ ${skills.map((skillGroup, index) => `  category_${index + 1} {
     formatDateRange(startDate, endDate) {
         const formatDate = (dateStr) => {
             if (!dateStr) return '';
+            
+            // Verificar si es texto literal (Actual, Presente, etc.)
+            const textualDates = ['actual', 'presente', 'actualidad', 'now', 'current'];
+            if (typeof dateStr === 'string' && textualDates.includes(dateStr.toLowerCase())) {
+                return 'Actual';
+            }
+            
             try {
                 const date = new Date(dateStr);
+                // Verificar si la fecha es válida
+                if (isNaN(date.getTime())) {
+                    return dateStr;
+                }
                 return date.toLocaleDateString('es-ES', {
                     year: 'numeric',
                     month: 'short'

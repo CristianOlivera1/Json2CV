@@ -1,4 +1,4 @@
-<header class="mt-14 h-14 md:h-16 border-b border-white/5 bg-[#030305] flex items-center justify-between px-3 md:px-4 lg:px-6 z-20">
+<header class="mt-20 h-14 md:h-16 border-b border-white/5 bg-[#030305] flex items-center justify-between px-3 md:px-4 lg:px-6 z-20">
     <div class="flex items-center gap-2 md:gap-6">
         <div class="h-6 w-px bg-white/10 hidden sm:block"></div>
         <div class="flex items-center gap-2 text-xs md:text-sm">
@@ -55,7 +55,7 @@
         <!-- JSON Editor -->
         <div class="flex-1 overflow-auto relative flex font-mono text-xs md:text-sm leading-6 max-h-[calc(40vh-60px)] lg:max-h-[calc(100dvh-100px)] overflow-y-auto custom-scroll">
             <div class="w-8 md:w-12 flex-shrink-0 bg-[#0a0a0c] border-r border-white/5 text-slate-600 text-right pr-2 md:pr-3 pt-4 select-none text-xs">
-                1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20
+                1<br>
             </div>
 
             <div id="json-editor" class="flex-1 p-2 md:p-4 outline-none text-slate-300" contenteditable="true" spellcheck="false" style="white-space: pre-wrap; word-wrap: break-word; overflow-wrap: break-word;">

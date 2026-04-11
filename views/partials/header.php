@@ -13,7 +13,7 @@ $user = $isAuthenticated ? [
 ?>
 
 <header>
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-[#030305]/80 backdrop-blur-md">
+    <nav id="mainNav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent border-b border-transparent py-2">
         <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
             <a href="/" class="text-white text-xl font-medium tracking-tight flex items-center gap-2 group">
                 <div class="w-8 h-8 rounded flex items-center justify-center text-black">
@@ -92,7 +92,7 @@ $user = $isAuthenticated ? [
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('dropdownButton');
     const menu = document.getElementById('dropdownMenu');
 
@@ -108,6 +108,21 @@ $user = $isAuthenticated ? [
             }
         });
     }
-});
 
+    const nav = document.getElementById('mainNav');
+    
+    const handleScroll = () => {
+        if (window.scrollY > 20) {
+            nav.classList.remove('bg-transparent', 'border-transparent', 'py-2');
+            nav.classList.add('bg-[#030305]/80', 'backdrop-blur-md', 'border-white/5', 'py-0');
+        } else {
+            nav.classList.remove('bg-[#030305]/80', 'backdrop-blur-md', 'border-white/5', 'py-0');
+            nav.classList.add('bg-transparent', 'border-transparent', 'py-2');
+        }
+    };
+
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+});
 </script>

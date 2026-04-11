@@ -452,7 +452,6 @@ class CVController
                 }
             } catch (Exception $e) {
                 error_log("Error personalizing example CV: " . $e->getMessage());
-                // Continuar con datos por defecto si hay error
             }
         }
 
