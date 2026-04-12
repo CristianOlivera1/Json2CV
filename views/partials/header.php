@@ -25,7 +25,7 @@ $user = $isAuthenticated ? [
             <div class="hidden md:flex items-center gap-8 text-sm font-light">
                 <a href="/" class="hover:text-[#00e1ff] transition-colors">Inicio</a>
                 <?php if ($isAuthenticated): ?>
-                    <a href="/profile" class="hover:text-[#00e1ff] transition-colors">Perfil</a>
+                    <a href="/profile" data-reload class="hover:text-[#00e1ff] transition-colors">Perfil</a>
                 <?php endif; ?>
                 <a href="/generate-cv" data-reload class="hover:text-[#00e1ff] transition-colors">Generar CV</a>
             </div>
