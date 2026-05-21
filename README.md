@@ -1,40 +1,52 @@
-# CodeOner - Generador de CV Profesional y Plataforma de Autenticación 🚀
+# CodeOner - Professional CV Generator & Authentication Platform 🚀
 
 ![CodeOner Demo](https://github.com/CristianOlivera1/Resources-dev/raw/main/any/demo-codeoner.gif)
 
-## 🎯 Descripción
-CodeOner es una plataforma web completa que combina un potente **generador de CV profesional** con un **sistema de autenticación avanzado**. Los usuarios pueden crear CVs con plantillas profesionales como Harvard y Modern Chronological, gestionar sus perfiles y acceder mediante autenticación social.
+## Description
+CodeOner is a complete web platform that combines a powerful **professional CV generator** with an **advanced authentication system**. Users can create professional resumes using templates such as Harvard and Modern Chronological, manage their profiles, and access the platform through social authentication providers.
 
-## ✨ Características Principales
+## Main Features
 
-### 📄 Generador de CV Avanzado
-- **Múltiples Plantillas**: Harvard Professional, Modern Chronological (Platinum Standard), y plantillas personalizables
-- **Editor JSON en Tiempo Real**: Edición inmediata con vista previa instantánea
-- **Export PDF**: Generación de PDFs profesionales (solo desktop)
-- **Responsive Design**: Optimizado para todos los dispositivos
-- **Auto-guardado**: Guardado automático cada 2 segundos
+### Advanced CV Generator
+- **Multiple Templates**: Harvard Professional, Modern Chronological (Platinum Standard), and customizable templates
+- **Real-Time JSON Editor**: Instant editing with live preview
+- **PDF Export**: Generate professional PDFs (desktop only)
+- **Responsive Design**: Optimized for all devices
+- **Auto Save**: Automatically saves every 2 seconds
 
-### 🔐 Sistema de Autenticación
-- **Autenticación Social**: Google, GitHub, Facebook
-- **Registro/Login Tradicional**: Usuario y contraseña
-- **Gestión de Sesiones**: Sistema de sesiones seguro
-- **OAuth 2.0**: Implementación completa de OAuth
+### Authentication System
+- **Social Authentication**: Google, GitHub, Facebook
+- **Traditional Login/Register**: Username and password authentication
+- **Session Management**: Secure session handling
+- **OAuth 2.0**: Full OAuth implementation
 
-### 👤 Gestión de Perfiles
-- **Perfiles Personalizables**: Avatar, información personal, biografía
-- **CVs Públicos**: Enlaces públicos para compartir CVs
-- **Control de Visibilidad**: CVs privados/públicos
-- **Gestión de Datos**: CRUD completo de información personal
+### Profile Management
+- **Customizable Profiles**: Avatar, personal information, biography
+- **Public CVs**: Public shareable CV links
+- **Visibility Control**: Public/private CV management
+- **Data Management**: Full CRUD for personal information
 
-### 🎨 Interfaz Moderna
-- **SPA (Single Page Application)**: Navegación fluida sin recargas
-- **Dark Theme**: Interfaz oscura moderna
-- **Animaciones**: Transiciones suaves y micro-interacciones
-- **Mobile-First**: Diseño completamente responsive
+### Modern Interface
+- **SPA (Single Page Application)**: Smooth navigation without page reloads
+- **Dark Theme**: Modern dark interface
+- **Animations**: Smooth transitions and micro-interactions
+- **Mobile-First**: Fully responsive design
 
 ![CodeOner Preview](https://github.com/CristianOlivera1/Resources-dev/raw/main/any/preview-codeoner.png)
 
-## 🛠️ Tecnologías
+---
+
+## Live Demo
+
+### CV Generator
+[![TRY_GENERATOR](https://img.shields.io/badge/TRY_GENERATOR-FF6B35?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://codeoner.rf.gd/generate-cv)
+
+### Example Generated CV
+[![VIEW_SAMPLE_CV](https://img.shields.io/badge/VIEW_SAMPLE_CV-4CAF50?style=for-the-badge&logo=readthedocs&logoColor=white)](https://codeoner.rf.gd/cv/cristian-olivera-chavez)
+
+---
+
+## Technologies
 
 ### Backend
 [![PHP](https://img.shields.io/badge/PHP_8.2-777BB4?logo=php&logoColor=white)](https://www.php.net/)
@@ -46,39 +58,41 @@ CodeOner es una plataforma web completa que combina un potente **generador de CV
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-### APIs y Servicios
+### APIs & Services
 [![Google OAuth](https://img.shields.io/badge/Google_OAuth-4285F4?logo=google&logoColor=white)](https://developers.google.com/identity)
 [![GitHub OAuth](https://img.shields.io/badge/GitHub_OAuth-181717?logo=github&logoColor=white)](https://docs.github.com/en/developers/apps)
 [![Facebook OAuth](https://img.shields.io/badge/Facebook_OAuth-1877F2?logo=facebook&logoColor=white)](https://developers.facebook.com/)
 
-## 📦 Instalación
+---
 
-### Prerrequisitos
+## Installation
+
+### Prerequisites
 - **PHP 8.2+**
 - **MySQL 8.0+**
 - **Composer**
-- **Servidor Web** (Apache/Nginx)
+- **Web Server** (Apache/Nginx)
 
-### Pasos de Instalación
+### Installation Steps
 
-1. **Clona el repositorio**
+#### 1. Clone the repository
 ```bash
 git clone https://github.com/CristianOlivera1/Login-Register-with-Autentication.git
 cd Login-Register-with-Autentication
 ```
 
-2. **Instala dependencias**
+#### 2. Install dependencies
 ```bash
 composer install
 npm install
 ```
 
-3. **Configura variables de entorno**
+#### 3. Configure environment variables
 ```bash
 cp .env.example .env
 ```
 
-4. **Edita el archivo `.env`**
+#### 4. Edit the `.env` file
 ```env
 # Database Configuration
 DB_HOST=localhost
@@ -99,43 +113,64 @@ APP_URL=http://localhost:3000
 REDIRECT_URL_BASE=http://localhost:3000
 ```
 
-5. **Configura la base de datos**
+#### 5. Set up the database
 ```sql
 CREATE DATABASE codeoner;
--- Importar schema desde database/schema.sql
+-- Import schema from database/schema.sql
 ```
 
-6. **Ejecución del Proyecto**
+#### 6. Run the project
 ```bash
-# Inicia el servidor de desarrollo en el puerto 3000
+# Start the development server on port 3000
 php -S localhost:3000 -t public public/router.php
-# Compila y vigila cambios en CSS para generar el archivo final 'style.css'
+
+# Compile and watch CSS changes to generate the final 'style.css' file
 npx tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css/style.css --watch
 ```
 
-## ⚙️ Configuración OAuth
+---
+
+## OAuth Configuration
 
 ### Google OAuth
-1. Ve a [Google Cloud Console](https://console.cloud.google.com/)
-2. Crea un proyecto nuevo
-3. Habilita Google+ API
-4. Crea credenciales OAuth 2.0
-5. URI de redirección: `http://localhost:3000/auth/callback/google`
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project
+3. Enable the Google+ API
+4. Create OAuth 2.0 credentials
+5. Redirect URI:
+```txt
+http://localhost:3000/auth/callback/google
+```
 
 ### GitHub OAuth
-1. Ve a [GitHub Developer Settings](https://github.com/settings/developers)
-2. Crea una nueva OAuth App
-3. Homepage URL: `http://localhost:3000`
-4. Authorization callback URL: `http://localhost:3000/auth/callback/github`
+1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
+2. Create a new OAuth App
+3. Homepage URL:
+```txt
+http://localhost:3000
+```
+4. Authorization callback URL:
+```txt
+http://localhost:3000/auth/callback/github
+```
 
 ### Facebook OAuth
-1. Ve a [Facebook for Developers](https://developers.facebook.com/)
-2. Crea una nueva app
-3. Agrega Facebook Login
-4. Valid OAuth Redirect URI: `http://localhost:3000/auth/callback/facebook`
+1. Go to [Facebook for Developers](https://developers.facebook.com/)
+2. Create a new app
+3. Add Facebook Login
+4. Valid OAuth Redirect URI:
+```txt
+http://localhost:3000/auth/callback/facebook
+```
 
-## 🌐 Demo en Vivo
+---
 
-**Sitio Web**: [![Ver Demo](https://img.shields.io/badge/DEMO_EN_VIVO-00e1ff?style=for-the-badge&logo=googlechrome&logoColor=black)](https://codeoner.rf.gd/)
-
-**Generador de CV**: [![Probar Generador](https://img.shields.io/badge/PROBAR_GENERADOR-FF6B35?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://codeoner.rf.gd/generate-cv)
+## 🚀 Highlights
+- Professional CV generation with real-time editing
+- Public CV sharing system
+- Modern responsive UI
+- Full authentication ecosystem
+- OAuth integrations
+- Fast SPA experience
+- Auto-save functionality
+- Production-ready architecture
